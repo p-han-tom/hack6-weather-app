@@ -6,9 +6,15 @@ dark: #8aacc8
 
 /* ANCHOR: App.js */
 
-html, body {
-    padding: 2em;
-    background-color: #eeffff;  
+
+#parallax {
+    padding: 3em;
+    background-image: url('./images/sky.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #loadingPrompt {
@@ -18,19 +24,26 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
-#greeting, #approx-location { 
-    font-size: 2em;
+#greeting {
+    font-size: 4em;
     font-weight: 500;
+    color: white;
+    text-shadow: 0 0 4px black;
 }
 
 #weather-cards {
     width: 45%;
     display: inline-block;
     margin-right: 5%;
+    vertical-align: top;
+    margin-bottom: 1em;
+}
+
+#weather-cards .accordion, .hour-cards {
+    box-shadow: 0 0 5px #8aacc8;
 }
 
 .hour-cards {
-    margin-top: 1em;
     font-size: 0.75em;
 }
 
@@ -41,7 +54,7 @@ html, body {
 .hour-cards .card-header {
     font-size: 2em;
     text-align: right;
-    background-color:#bbdefb;
+    background-color: #bbdefb;
 }
 
 #weather-icons {
@@ -61,9 +74,9 @@ html, body {
     width: 45%;
     margin-right: 5%;
     margin-bottom: 3em;
-    border: solid 1px #8aacc8;
+    box-shadow: 0 0 5px #8aacc8;
     background-color: #bbdefb;
-    border-radius: 1em;
+    border-radius: 0.25em;
     padding: 1em;
     display: inline-block;
 }
@@ -73,16 +86,17 @@ html, body {
     border-color: #8aacc8;
 }
 
-#tipHeader {
+#tipHeader, #timeHeader {
     font-size: 2em;
     color: white;
     font-weight: 500;
     text-shadow: 0 0 5px black;
+}
+
+#tipHeader {
     padding: 0.5em
 }
 
 #timeHeader {
-    font-weight: 500;
-    font-size: 2em;
     text-align: center;
 }
