@@ -30,10 +30,9 @@ const tips = {
         lowMsg: `It's going to be a warm here, so don't dress too warm yourself.`,
         midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
         hiMsg: `It's going to be very hot here. Here are some tips:
-                - Wear loose-fitting, short-sleeved clothes for better air circulation 
-                - Wear light-coloured fabrics to reflect sunlight
-                - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
-                - Pack a water bottle to stay hydrated`
+                - Wear light-coloured fabrics to reflect sunlight.
+                - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials.
+                - Pack a water bottle to stay hydrated.`
     },
     "feels_like_low": {
         compare: function(data) {
@@ -63,10 +62,10 @@ const tips = {
         midMsg: `It's going to be cold here, dress warmly and remember to wear multiple layers.
                  Wear a hat, gloves, and insulated boots.`,
         hiMsg: `It is extremely cold here. Some tips for staying warm:
-                - Wear multiple layers, with inner layers keeping you insulated, dry, and warm
-                - Your outer layer should consist of heavy duty clothing that can protect you from rain, wind, and snow
-                - Remember to keep your appendages insulated to prevent frostnip and frostbite
-                - Try to avoid spending too long outside, pack water to stay hydrated`
+                - Wear multiple layers, with inner layers keeping you insulated, dry, and warm.
+                - Your outer layer should consist of heavy duty clothing that can protect you from rain, wind, and snow.
+                - Remember to keep your appendages insulated to prevent frostnip and frostbite.
+                - Try to avoid spending too long outside, pack water to stay hydrated.`
     },
     "humidity": {
         compare: function(data) {
@@ -89,8 +88,8 @@ const tips = {
         lowTitle: "Dry conditions",
         hiTitle: "Wet conditions",
 
-        lowMsg: `dry`,
-        hiMsg: `wet`
+        lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, coughing.`,
+        hiMsg: `High humidity prevents sweat from evaporating easily, wear loose-fitting clothes for better air circulation.`
     },
     "pop": {
         compare: function(data) {
