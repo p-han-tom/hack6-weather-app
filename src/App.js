@@ -74,7 +74,7 @@ export default class App extends React.Component {
     let ampm = hours > 11 ? "PM" : "AM";
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    let timeString =  hours + ":" + minutes + ":" + seconds + " " + ampm;
+    let timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
     this.setState({ time: timeString });
   }
 
@@ -108,7 +108,7 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 12; i++) {
       reports.push(
-        <div id = "weather-cards">
+        <div id="weather-cards">
           <OverlayTrigger
             placement="right"
             overlay={
@@ -123,7 +123,7 @@ export default class App extends React.Component {
               {/* Ternary to automatically adjust any Atmosphere conditions to a cloudy background */}
               <Card.Header style={{ background: hourlyWeather[i].weather[0].main >= 700 && hourlyWeather[i].weather[0].main < 800 ? BG[hourlyWeather[i].weather[0].main] : BG["Clouds"] }}>
                 <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
-                
+
                 <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
                 <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
               </Card.Header>
@@ -189,7 +189,7 @@ export default class App extends React.Component {
   render() {
     if (Object.keys(this.state.weather).length > 0) {
       return (
-        <div id = "parallax">
+        <div id="parallax">
           {/* HEADER */}
           <Row>
             <Col id="greeting">
