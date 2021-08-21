@@ -105,42 +105,43 @@ export default class App extends React.Component {
   generateHourlyReport = () => {
     let reports = [];
     let hourlyWeather = this.state.weather.hourly;
-    
+
     for (let i = 0; i < 12; i++) {
       reports.push(
-        <OverlayTrigger
-          trigger="click"
-          placement="right"
-          overlay={
-            <Popover>
-              <Popover.Body>
-                <div>Temperature: {hourlyWeather[i].temp}°C</div>
-                <div>Feels Like: {hourlyWeather[i].feels_like}°C</div>
-              </Popover.Body>
-            </Popover>
-          }>
-          <Card className="hour-cards">
-            {/* Ternary to automatically adjust any Atmosphere conditions to a cloudy background */}
-            <Card.Header style={{ background: hourlyWeather[i].weather[0].main >= 700 && hourlyWeather[i].weather[0].main < 800 ? BG[hourlyWeather[i].weather[0].main] : BG["Clouds"] }}>
-              <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
-              <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
-              <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
-            </Card.Header>
-            <Accordion defaultActiveKey='0'>
-              <Accordion.Item>
-                <Accordion.Header>P.O.P: {hourlyWeather[i].pop * 100}%</Accordion.Header>
-                <Accordion.Body>
-                  <div>Humidity: {hourlyWeather[i].humidity}%</div>
-                  <div>UV Index: {hourlyWeather[i].uvi}</div>
-                  <div>Visibility: {hourlyWeather[i].visibility/1000}km</div>
-                  <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
-                </Accordion.Body>
-              </Accordion.Item>
-              {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
-              {/* Expand to show more if things get to cluttered? */}
-            </Accordion>
-          </Card>
-        </OverlayTrigger>
+        <div style={{ width: "50%", marginBottom: "2em" }}>
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Popover>
+                <Popover.Body>
+                  <div>Temperature: {hourlyWeather[i].temp}°C</div>
+                  <div>Feels Like: {hourlyWeather[i].feels_like}°C</div>
+                </Popover.Body>
+              </Popover>
+            }>
+            <Card className="hour-cards">
+              {/* Ternary to automatically adjust any Atmosphere conditions to a cloudy background */}
+              <Card.Header style={{ background: hourlyWeather[i].weather[0].main >= 700 && hourlyWeather[i].weather[0].main < 800 ? BG[hourlyWeather[i].weather[0].main] : BG["Clouds"] }}>
+                <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
+                <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
+                <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
+              </Card.Header>
+            </Card>
+          </OverlayTrigger>
+          <Accordion defaultActiveKey='0'>
+            <Accordion.Item>
+              <Accordion.Header>P.O.P: {hourlyWeather[i].pop * 100}%</Accordion.Header>
+              <Accordion.Body>
+                <div>Humidity: {hourlyWeather[i].humidity}%</div>
+                <div>UV Index: {hourlyWeather[i].uvi}</div>
+                <div>Visibility: {hourlyWeather[i].visibility / 1000}km</div>
+                <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
+              </Accordion.Body>
+            </Accordion.Item>
+            {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
+            {/* Expand to show more if things get to cluttered? */}
+          </Accordion>
+        </div>
       );
     }
     return reports;
