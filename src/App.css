@@ -28,6 +28,10 @@ html, body {
     font-size: 0.75em;
 }
 
+.hour-cards:hover {
+    cursor: pointer;
+}
+
 .hour-cards .card-header {
     font-size: 2em;
     text-align: right;
