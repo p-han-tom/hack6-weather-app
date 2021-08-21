@@ -30,10 +30,10 @@ const tips = {
         lowMsg: `It's going to be a warm here, so don't dress too warm yourself.`,
         midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
         hiMsg: `It's going to be very hot here. Here are some tips:
-        - Wear loose-fitting, short-sleeved clothes for better air circulation 
-        - Wear light-coloured fabrics to reflect sunlight
-        - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
-        - Pack a water bottle to stay hydrated`
+                - Wear loose-fitting, short-sleeved clothes for better air circulation 
+                - Wear light-coloured fabrics to reflect sunlight
+                - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
+                - Pack a water bottle to stay hydrated`
     },
     "feels_like_low": {
         compare: function(data) {
@@ -47,9 +47,9 @@ const tips = {
                 return -1
             }
         },
-        low: 5,
-        mid: -5,
-        hi: -15,
+        low: 10,
+        mid: 0,
+        hi: -10,
 
         lowColor: "#35fcc1",
         midColor: "#35cefc",
@@ -59,9 +59,14 @@ const tips = {
         midTitle: "Cold weather",
         hiTitle: "Very cold weather",
 
-        lowMsg: `Cool`,
-        midMsg: `cold`,
-        hiMsg: `very cold`
+        lowMsg: `It's going to be a little chilly here, dress warmly.`,
+        midMsg: `It's going to be cold here, dress warmly and remember to wear multiple layers.
+                 Wear a hat, gloves, and insulated boots.`,
+        hiMsg: `It is extremely cold here. Some tips for staying warm:
+                - Wear multiple layers, with inner layers keeping you insulated, dry, and warm
+                - Your outer layer should consist of heavy duty clothing that can protect you from rain, wind, and snow
+                - Remember to keep your appendages insulated to prevent frostnip and frostbite
+                - Try to avoid spending too long outside, pack water to stay hydrated`
     },
     "humidity": {
         compare: function(data) {
