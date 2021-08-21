@@ -31,6 +31,14 @@ dark: #8aacc8
     text-shadow: 0 0 4px black;
 }
 
+#last-update {
+    color: white;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 0 3px black;
+    margin-bottom: 0.5em;
+}
+
 #weather-cards {
     width: 45%;
     display: inline-block;
@@ -72,7 +80,7 @@ dark: #8aacc8
 #tipCollection {
     vertical-align: top;
     width: 45%;
-    margin-right: 5%;
+    margin-left: 5%;
     margin-bottom: 3em;
     box-shadow: 0 0 5px #8aacc8;
     background-color: #bbdefb;
