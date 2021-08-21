@@ -2,6 +2,7 @@ import './App.css';
 import axios from "axios"
 import React from 'react';
 import { Row, Col, Card, ListGroup } from 'react-bootstrap';
+import WeatherTips from './WeatherTips';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class App extends React.Component {
   parseTime = (unixTime) => {
     let hours = new Date(unixTime * 1000).getHours();
     let ampm = hours > 11 ? "PM" : "AM";
-    hours = hours < 10 ? "0"+hours : hours;
+    hours = hours < 10 ? "0" + hours : hours;
     return hours + ":00 " + ampm;
   }
 
@@ -72,11 +73,11 @@ export default class App extends React.Component {
   /*
   Each hourly weather index looks like this
   0:
-    clouds: 3
+    clouds: 3 (percentage /100)
     dew_point: 17.37
     dt: 1629518400
     feels_like: 20.24
-    humidity: 85
+    humidity: 85 percentage
     pop: 0 (0 -> 1 with 1 = 100%)
     pressure: 1013
     temp: 19.97 (celsius)
@@ -118,6 +119,42 @@ export default class App extends React.Component {
     return reports;
   }
 
+  generateWeatherTips = () => {
+    let tips = [];
+    let summaries = [];
+    for (let i = 0; i < 3; i++) {
+      summaries.push(
+        {
+          clouds: 0,
+          feels_like_high: -1000,
+          feels_like_low: 1000,
+          humidity: -1000,
+          pop: -1000,
+          uvi: 0,
+          visibility: 0,
+          wind_speed: 0
+        }
+      );
+    }
+    let hourlyWeather = this.state.weather.hourly;
+
+    for (let i = 0; i < 9; i += 4) {
+      for (let j = 0; j < 4; j++) {
+        summaries[i/4].clouds = Math.max(hourlyWeather[i + j].clouds, summaries[i/4].clouds);
+        summaries[i/4].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i/4].feels_like_high);
+        summaries[i/4].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i/4].feels_like_low);
+        summaries[i/4].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i/4].humidity);
+        summaries[i/4].pop = Math.max(hourlyWeather[i + j].pop, summaries[i/4].pop);
+        summaries[i/4].uvi = Math.max(hourlyWeather[i + j].uvi, summaries[i/4].uvi);
+        summaries[i/4].visibility = Math.max(hourlyWeather[i + j].visibility, summaries[i/4].visibility);
+        summaries[i/4].wind_speed = Math.max(hourlyWeather[i + j].wind_speed, summaries[i/4].wind_speed);
+      }
+      tips.push(<WeatherTips summary = {summaries[i/4]}/>)
+    }
+
+    return tips;
+  }
+
   render() {
 
     if (Object.keys(this.state.weather).length > 0) {
@@ -125,24 +162,24 @@ export default class App extends React.Component {
         <div>
           {/* HEADER */}
           <Row>
-            <Col id = "greeting">
+            <Col id="greeting">
               Greetings! Today is {this.state.time}
             </Col>
-            <Col id = "approx-location">
+            <Col id="approx-location">
               (TODO: Nearest City)
             </Col>
           </Row>
 
           {/* ANCHOR: HOURLY REPORT AND WEATHER TIPS */}
           <Row>
-            {/* Hourly reports */}
+            {/* Hourly reports for next 12 hours*/}
             <Col>
               {this.generateHourlyReport()}
             </Col>
 
             {/* Weather tips in four hour intervals */}
             <Col>
-
+              {this.generateWeatherTips()}
             </Col>
 
           </Row>
