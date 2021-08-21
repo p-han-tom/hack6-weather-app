@@ -7,10 +7,10 @@ import WeatherTips from './WeatherTips';
 import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover, Accordion } from 'react-bootstrap';
 
 const BG = {
-  "Rain": ["linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))"],
+  "Rain": ["linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))","linear-gradient(90deg, rgba(156,150,255,1) 0%, rgba(88,88,241,1) 49%, rgba(16,86,101,1) 100%), rgb(7,0,115)"],
   "Clear": ["linear-gradient(rgb(250, 217, 0),  rgb(255, 255, 255))", "linear-gradient(rgb(0, 21, 141),  rgb(49, 49, 49))"],
   "Clouds": ["linear-gradient(rgb(194, 194, 194), rgb(235, 235, 235))", "linear-gradient(rgb(141, 141, 141), rgb(0, 43, 136))"],
-  "Snow": ["linear-gradient(rgb(147, 221, 255), rgb(134, 209, 253))"]
+  "Snow": ["linear-gradient(rgb(147, 221, 255), rgb(134, 209, 253))","linear-gradient(90deg, rgba(7,0,115,1) 0%, rgba(88,88,241,1) 50%, rgba(0,173,210,1) 100%), rgb(7,0,115)"]
 }
 
 const date = new Date();
