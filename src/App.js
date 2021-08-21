@@ -74,7 +74,7 @@ export default class App extends React.Component {
     let ampm = hours > 11 ? "PM" : "AM";
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    let timeString = currentTime.toDateString() + ", " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+    let timeString =  hours + ":" + minutes + ":" + seconds + " " + ampm;
     this.setState({ time: timeString });
   }
 
@@ -188,14 +188,11 @@ export default class App extends React.Component {
   render() {
     if (Object.keys(this.state.weather).length > 0) {
       return (
-        <div>
+        <div id = "parallax">
           {/* HEADER */}
           <Row>
             <Col id="greeting">
-              Greetings! Today is {this.state.time}
-            </Col>
-            <Col id="approx-location">
-              (TODO: Nearest City)
+              {this.state.time}
             </Col>
           </Row>
 
