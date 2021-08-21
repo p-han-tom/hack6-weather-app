@@ -1,1 +1,0 @@
-// Depending on weather conditions
