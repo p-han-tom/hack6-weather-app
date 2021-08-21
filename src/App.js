@@ -158,7 +158,9 @@ export default class App extends React.Component {
 
             {/* Weather tips in four hour intervals */}
             <Col>
-
+              <div>4 Hour Recommendation: </div>
+              <div>8 Hour Recommendation: </div>
+              <div>12 Hour Recommendation: </div>
             </Col>
 
           </Row>
