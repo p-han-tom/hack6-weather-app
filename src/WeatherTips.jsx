@@ -59,13 +59,13 @@ const tips = {
         hiTitle: "Very cold weather",
 
         lowMsg: `It's going to be a little chilly here, dress warmly.`,
-        midMsg: `It's going to be cold here, dress warmly and remember to wear multiple layers.
+        midMsg: `It's going to be cold here. Dress warmly and remember to wear multiple layers.
                  Wear a hat, gloves, and insulated boots.`,
         hiMsg: `It is extremely cold here. Some tips for staying warm:
                 - Wear multiple layers, with inner layers keeping you insulated, dry, and warm.
                 - Your outer layer should consist of heavy duty clothing that can protect you from rain, wind, and snow.
                 - Remember to keep your appendages insulated to prevent frostnip and frostbite.
-                - Try to avoid spending too long outside, pack water to stay hydrated.`
+                - Try to avoid spending too long outside, and take regular breaks from the cold weather if possible.`
     },
     "humidity": {
         compare: function (data) {
@@ -88,7 +88,7 @@ const tips = {
         lowTitle: "Dry conditions",
         hiTitle: "Wet conditions",
 
-        lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, coughing.`,
+        lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, coughing. Consider utilizing a humidifier if you are indoors.`,
         hiMsg: `High humidity prevents sweat from evaporating easily. Wear loose-fitting clothes for better air circulation.`
     },
     "pop": {
@@ -115,7 +115,7 @@ const tips = {
         midTitle: "Medium risk of rain",
         hiTitle: "High risk of rain",
 
-        lowMsg: `The chance for precipitation is low, no need to worry about heavy rain. Might want to bring an umbrella just in case.`,
+        lowMsg: `The chance for precipitation is low, so there's no need to worry about heavy rain. You might want to bring an umbrella just in case.`,
         midMsg: `There is a decent chance it will rain. If you're going outside, consider bringing rain gear and an umbrella.`,
         hiMsg: `With such a high chance for precipitation, you should definitely prepare for rain. Rain gear and an umbrella are recommended if you plan to go outside.`
     },
@@ -183,7 +183,7 @@ const tips = {
         midTitle: "Moderate breeze",
         hiTitle: "Strong breeze",
 
-        midMsg: `Windy enough to sway trees. Noticeable impediment when walking against the wind. No danger is posed, but dress accordingly.`,
+        midMsg: `Windy enough to sway trees. Slight impediment when walking against the wind. No danger is posed, but dress accordingly.`,
         hiMsg: `Very windy, twigs breaking off trees. Walking against the wind is very difficult. Could be dangerous if the winds get any larger. It is recommended to not venture outside.`
     }
 }

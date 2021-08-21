@@ -6,10 +6,15 @@ dark: #8aacc8
 
 /* ANCHOR: App.js */
 
+button:focus {
+    /* outline: none; */
+    box-shadow: 0 0 0 !important;
+}
 
 #parallax {
     padding: 3em;
     background-image: url('./images/sky.jpg');
+    /* background: linear-gradient(rgb(141, 141, 141), rgb(0, 43, 136)); */
     height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -29,6 +34,14 @@ dark: #8aacc8
     font-weight: 500;
     color: white;
     text-shadow: 0 0 4px black;
+}
+
+#last-update {
+    color: white;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 0 3px black;
+    margin-bottom: 0.5em;
 }
 
 #weather-cards {
@@ -72,7 +85,7 @@ dark: #8aacc8
 #tipCollection {
     vertical-align: top;
     width: 45%;
-    margin-right: 5%;
+    margin-left: 5%;
     margin-bottom: 3em;
     box-shadow: 0 0 5px #8aacc8;
     background-color: #bbdefb;
