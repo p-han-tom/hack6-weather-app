@@ -4,7 +4,7 @@ import React from 'react';
 
 import WeatherTips from './WeatherTips';
 
-import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover, Accordion } from 'react-bootstrap';
 
 const BG = {
   "Rain": "linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))",
@@ -116,10 +116,6 @@ export default class App extends React.Component {
               <Popover.Body>
                 <div>Temperature: {hourlyWeather[i].temp}°C</div>
                 <div>Feels Like: {hourlyWeather[i].feels_like}°C</div>
-                {/* <div>Humidity: {hourlyWeather[i].humidity}%</div>
-                <div>UV Index: {hourlyWeather[i].uvi}</div>
-                <div>Visibility: {hourlyWeather[i].visibility/1000}km</div>
-                <div>Wind: {hourlyWeather[i].wind_speed}km/h</div> */}
               </Popover.Body>
             </Popover>
           }>
@@ -130,13 +126,19 @@ export default class App extends React.Component {
               <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
               <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
             </Card.Header>
-            <ListGroup>
-              <ListGroup.Item>
-                P.O.P: {hourlyWeather[i].pop * 100}%
-              </ListGroup.Item>
+            <Accordion defaultActiveKey='0'>
+              <Accordion.Item>
+                <Accordion.Header>P.O.P: {hourlyWeather[i].pop * 100}%</Accordion.Header>
+                <Accordion.Body>
+                  <div>Humidity: {hourlyWeather[i].humidity}%</div>
+                  <div>UV Index: {hourlyWeather[i].uvi}</div>
+                  <div>Visibility: {hourlyWeather[i].visibility/1000}km</div>
+                  <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
+                </Accordion.Body>
+              </Accordion.Item>
               {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
               {/* Expand to show more if things get to cluttered? */}
-            </ListGroup>
+            </Accordion>
           </Card>
         </OverlayTrigger>
       );
