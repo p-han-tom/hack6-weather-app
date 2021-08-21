@@ -4,7 +4,7 @@ import React from 'react';
 
 import WeatherTips from './WeatherTips';
 
-import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover, Accordion } from 'react-bootstrap';
 
 const BG = {
   "Rain": "linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))",
@@ -105,6 +105,7 @@ export default class App extends React.Component {
   generateHourlyReport = () => {
     let reports = [];
     let hourlyWeather = this.state.weather.hourly;
+    
     for (let i = 0; i < 12; i++) {
       reports.push(
         <OverlayTrigger
@@ -112,7 +113,10 @@ export default class App extends React.Component {
           placement="right"
           overlay={
             <Popover>
-              <Popover.Body>Addition Info goes here :)</Popover.Body>
+              <Popover.Body>
+                <div>Temperature: {hourlyWeather[i].temp}°C</div>
+                <div>Feels Like: {hourlyWeather[i].feels_like}°C</div>
+              </Popover.Body>
             </Popover>
           }>
           <Card className="hour-cards">
@@ -122,13 +126,19 @@ export default class App extends React.Component {
               <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
               <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
             </Card.Header>
-            <ListGroup>
-              <ListGroup.Item>
-                P.O.P: {hourlyWeather[i].pop * 100}%
-              </ListGroup.Item>
+            <Accordion defaultActiveKey='0'>
+              <Accordion.Item>
+                <Accordion.Header>P.O.P: {hourlyWeather[i].pop * 100}%</Accordion.Header>
+                <Accordion.Body>
+                  <div>Humidity: {hourlyWeather[i].humidity}%</div>
+                  <div>UV Index: {hourlyWeather[i].uvi}</div>
+                  <div>Visibility: {hourlyWeather[i].visibility/1000}km</div>
+                  <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
+                </Accordion.Body>
+              </Accordion.Item>
               {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
               {/* Expand to show more if things get to cluttered? */}
-            </ListGroup>
+            </Accordion>
           </Card>
         </OverlayTrigger>
       );
@@ -142,7 +152,6 @@ export default class App extends React.Component {
     for (let i = 0; i < 3; i++) {
       summaries.push(
         {
-          clouds: 0,
           feels_like_high: -1000,
           feels_like_low: 1000,
           humidity: -1000,
@@ -157,7 +166,7 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 9; i += 4) {
       for (let j = 0; j < 4; j++) {
-        summaries[i / 4].clouds = Math.max(hourlyWeather[i + j].clouds, summaries[i / 4].clouds);
+
         summaries[i / 4].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_high);
         summaries[i / 4].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_low);
         summaries[i / 4].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i / 4].humidity);
@@ -207,7 +216,5 @@ export default class App extends React.Component {
         <div id="loadingPrompt"><Spinner animation="border" /><span style={{ fontSize: "3em" }}> Loading</span></div>
       )
     }
-
   }
 }
-
