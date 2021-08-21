@@ -15,7 +15,7 @@ export default class App extends React.Component {
     };
 
     navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
-    setInterval(this.updateTime, 1000);
+    setInterval(this.updateHeaderClock, 1000);
   }
 
   setLocation = (position) => {
@@ -53,7 +53,7 @@ export default class App extends React.Component {
     return new Date(unixTime * 1000);
   }
 
-  updateTime = () => {
+  updateHeaderClock = () => {
     let currentTime = new Date();
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
@@ -92,7 +92,7 @@ export default class App extends React.Component {
         <div>
           <div>TIME: {this.parseTime(weather[i].dt).getHours()}</div>
           <div>TEMPERATURE: {weather[i].temp}°C</div>
-          <div>POP: {weather[i].pop*100}%</div>
+          <div>POP: {weather[i].pop * 100}%</div>
           <br></br>
         </div>
 
@@ -106,13 +106,28 @@ export default class App extends React.Component {
     if (Object.keys(this.state.weather).length > 0) {
       return (
         <div>
+          {/* HEADER */}
           <Row>
             <Col>
               Greetings! Today is {this.state.time}
             </Col>
             <Col>
+              Placeholder Area
+            </Col>
+          </Row>
+
+          {/* ANCHOR: HOURLY REPORT AND WEATHER TIPS */}
+          <Row>
+            {/* Hourly reports */}
+            <Col>
               {this.generateHourlyReport()}
             </Col>
+
+            {/* Weather tips in four hour intervals */}
+            <Col>
+
+            </Col>
+
           </Row>
         </div>
       );
