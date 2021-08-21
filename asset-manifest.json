@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/hack6-weather-app/static/css/main.748a1503.chunk.css",
-    "main.js": "/hack6-weather-app/static/js/main.5baf8b7d.chunk.js",
-    "main.js.map": "/hack6-weather-app/static/js/main.5baf8b7d.chunk.js.map",
-    "runtime-main.js": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js",
-    "runtime-main.js.map": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js.map",
-    "static/js/2.fec0bc65.chunk.js": "/hack6-weather-app/static/js/2.fec0bc65.chunk.js",
-    "static/js/2.fec0bc65.chunk.js.map": "/hack6-weather-app/static/js/2.fec0bc65.chunk.js.map",
-    "static/js/3.6c8df376.chunk.js": "/hack6-weather-app/static/js/3.6c8df376.chunk.js",
-    "static/js/3.6c8df376.chunk.js.map": "/hack6-weather-app/static/js/3.6c8df376.chunk.js.map",
-    "index.html": "/hack6-weather-app/index.html",
-    "static/css/main.748a1503.chunk.css.map": "/hack6-weather-app/static/css/main.748a1503.chunk.css.map",
-    "static/js/2.fec0bc65.chunk.js.LICENSE.txt": "/hack6-weather-app/static/js/2.fec0bc65.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/hack6-weather-app/static/media/sky.52135992.jpg"
+    "main.css": "/smart-day/static/css/main.7d554c66.chunk.css",
+    "main.js": "/smart-day/static/js/main.5baf8b7d.chunk.js",
+    "main.js.map": "/smart-day/static/js/main.5baf8b7d.chunk.js.map",
+    "runtime-main.js": "/smart-day/static/js/runtime-main.3db99a68.js",
+    "runtime-main.js.map": "/smart-day/static/js/runtime-main.3db99a68.js.map",
+    "static/js/2.fec0bc65.chunk.js": "/smart-day/static/js/2.fec0bc65.chunk.js",
+    "static/js/2.fec0bc65.chunk.js.map": "/smart-day/static/js/2.fec0bc65.chunk.js.map",
+    "static/js/3.6c8df376.chunk.js": "/smart-day/static/js/3.6c8df376.chunk.js",
+    "static/js/3.6c8df376.chunk.js.map": "/smart-day/static/js/3.6c8df376.chunk.js.map",
+    "index.html": "/smart-day/index.html",
+    "static/css/main.7d554c66.chunk.css.map": "/smart-day/static/css/main.7d554c66.chunk.css.map",
+    "static/js/2.fec0bc65.chunk.js.LICENSE.txt": "/smart-day/static/js/2.fec0bc65.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/smart-day/static/media/sky.52135992.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a27dfa1.js",
+    "static/js/runtime-main.3db99a68.js",
     "static/js/2.fec0bc65.chunk.js",
-    "static/css/main.748a1503.chunk.css",
+    "static/css/main.7d554c66.chunk.css",
     "static/js/main.5baf8b7d.chunk.js"
   ]
 }
