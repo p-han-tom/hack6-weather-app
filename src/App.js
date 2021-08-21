@@ -105,6 +105,7 @@ export default class App extends React.Component {
   generateHourlyReport = () => {
     let reports = [];
     let hourlyWeather = this.state.weather.hourly;
+    
     for (let i = 0; i < 12; i++) {
       reports.push(
         <OverlayTrigger
@@ -112,7 +113,14 @@ export default class App extends React.Component {
           placement="right"
           overlay={
             <Popover>
-              <Popover.Body>Addition Info goes here :)</Popover.Body>
+              <Popover.Body>
+                <div>Temperature: {hourlyWeather[i].temp}°C</div>
+                <div>Feels Like: {hourlyWeather[i].feels_like}°C</div>
+                {/* <div>Humidity: {hourlyWeather[i].humidity}%</div>
+                <div>UV Index: {hourlyWeather[i].uvi}</div>
+                <div>Visibility: {hourlyWeather[i].visibility/1000}km</div>
+                <div>Wind: {hourlyWeather[i].wind_speed}km/h</div> */}
+              </Popover.Body>
             </Popover>
           }>
           <Card className="hour-cards">
@@ -207,6 +215,5 @@ export default class App extends React.Component {
         <div id="loadingPrompt"><Spinner animation="border" /><span style={{ fontSize: "3em" }}> Loading</span></div>
       )
     }
-
   }
 }
