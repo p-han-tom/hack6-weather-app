@@ -47,9 +47,9 @@ const tips = {
                 return -1
             }
         },
-        low: 5,
-        mid: -5,
-        hi: -15,
+        low: 10,
+        mid: 0,
+        hi: -10,
 
         lowColor: "#35fcc1",
         midColor: "#35cefc",
