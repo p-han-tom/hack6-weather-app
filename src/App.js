@@ -1,7 +1,7 @@
 import './App.css';
 import axios from "axios"
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card, ListGroup } from 'react-bootstrap';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,7 +9,6 @@ export default class App extends React.Component {
 
     this.state = {
       weather: {},
-
       lat: undefined,
       lon: undefined,
     };
@@ -26,6 +25,8 @@ export default class App extends React.Component {
     }
   }
 
+
+  // BACKEND DO NOT TOUCH
   getWeather = () => {
     let options = {
       method: 'GET',
@@ -50,7 +51,10 @@ export default class App extends React.Component {
   }
 
   parseTime = (unixTime) => {
-    return new Date(unixTime * 1000);
+    let hours = new Date(unixTime * 1000).getHours();
+    let ampm = hours > 11 ? "PM" : "AM";
+    hours = hours < 10 ? "0"+hours : hours;
+    return hours + ":00 " + ampm;
   }
 
   updateHeaderClock = () => {
@@ -73,12 +77,17 @@ export default class App extends React.Component {
     dt: 1629518400
     feels_like: 20.24
     humidity: 85
-    pop: 0
+    pop: 0 (0 -> 1 with 1 = 100%)
     pressure: 1013
-    temp: 19.97
+    temp: 19.97 (celsius)
     uvi: 0
     visibility: 10000
-    weather: [{…}]
+    weather: Array(1)
+      0:
+      description: "clear sky"
+      icon: "01n"
+      id: 800
+      main: "Clear"
     wind_deg: 315
     wind_gust: 1.52
     wind_speed: 1.4
@@ -86,15 +95,23 @@ export default class App extends React.Component {
 
   generateHourlyReport = () => {
     let reports = [];
-    let weather = this.state.weather.hourly;
+    let hourlyWeather = this.state.weather.hourly;
     for (let i = 0; i < 12; i++) {
       reports.push(
-        <div>
-          <div>TIME: {this.parseTime(weather[i].dt).getHours()}</div>
-          <div>TEMPERATURE: {weather[i].temp}°C</div>
-          <div>POP: {weather[i].pop * 100}%</div>
-          <br></br>
-        </div>
+        <Card className="hour-cards">
+          <Card.Header>
+            <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
+            <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
+            {Math.round(hourlyWeather[i].temp)}°C
+          </Card.Header>
+          <ListGroup>
+            <ListGroup.Item>
+              P.O.P: {hourlyWeather[i].pop * 100}%
+            </ListGroup.Item>
+            {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
+            {/* Expand to show more if things get to cluttered? */}
+          </ListGroup>
+        </Card>
 
       );
     }
@@ -108,11 +125,11 @@ export default class App extends React.Component {
         <div>
           {/* HEADER */}
           <Row>
-            <Col>
+            <Col id = "greeting">
               Greetings! Today is {this.state.time}
             </Col>
-            <Col>
-              Placeholder Area
+            <Col id = "approx-location">
+              (TODO: Nearest City)
             </Col>
           </Row>
 

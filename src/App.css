@@ -1,0 +1,32 @@
+/*
+ primary: #bbdefb
+light: #eeffff
+dark: #8aacc8
+ */
+
+html, body {
+    overflow-x: hidden;
+    padding: 2em;
+    background-color: #eeffff;
+}
+
+#greeting, #approx-location { 
+    font-size: 2em;
+}
+
+.hour-cards {
+    width: 50%;
+    margin: 1em 0 1em 0;
+}
+
+.hour-cards .card-header {
+    font-size: 2em;
+    text-align: right;
+    background-color:#bbdefb;
+}
+
+#hour-header {
+    display: inline;
+    float: left;
+}
+
