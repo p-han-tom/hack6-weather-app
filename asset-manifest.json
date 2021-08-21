@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/hack6-weather-app/static/css/main.27f22c32.chunk.css",
-    "main.js": "/hack6-weather-app/static/js/main.eed3cb56.chunk.js",
-    "main.js.map": "/hack6-weather-app/static/js/main.eed3cb56.chunk.js.map",
-    "runtime-main.js": "/hack6-weather-app/static/js/runtime-main.5e7e0e0a.js",
-    "runtime-main.js.map": "/hack6-weather-app/static/js/runtime-main.5e7e0e0a.js.map",
-    "static/js/2.6e543f71.chunk.js": "/hack6-weather-app/static/js/2.6e543f71.chunk.js",
-    "static/js/2.6e543f71.chunk.js.map": "/hack6-weather-app/static/js/2.6e543f71.chunk.js.map",
-    "static/js/3.1fc0a76e.chunk.js": "/hack6-weather-app/static/js/3.1fc0a76e.chunk.js",
-    "static/js/3.1fc0a76e.chunk.js.map": "/hack6-weather-app/static/js/3.1fc0a76e.chunk.js.map",
+    "main.css": "/hack6-weather-app/static/css/main.14700a2e.chunk.css",
+    "main.js": "/hack6-weather-app/static/js/main.7d4c233c.chunk.js",
+    "main.js.map": "/hack6-weather-app/static/js/main.7d4c233c.chunk.js.map",
+    "runtime-main.js": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js",
+    "runtime-main.js.map": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js.map",
+    "static/js/2.8a8f428b.chunk.js": "/hack6-weather-app/static/js/2.8a8f428b.chunk.js",
+    "static/js/2.8a8f428b.chunk.js.map": "/hack6-weather-app/static/js/2.8a8f428b.chunk.js.map",
+    "static/js/3.6c8df376.chunk.js": "/hack6-weather-app/static/js/3.6c8df376.chunk.js",
+    "static/js/3.6c8df376.chunk.js.map": "/hack6-weather-app/static/js/3.6c8df376.chunk.js.map",
     "index.html": "/hack6-weather-app/index.html",
-    "static/css/main.27f22c32.chunk.css.map": "/hack6-weather-app/static/css/main.27f22c32.chunk.css.map",
-    "static/js/2.6e543f71.chunk.js.LICENSE.txt": "/hack6-weather-app/static/js/2.6e543f71.chunk.js.LICENSE.txt"
+    "static/css/main.14700a2e.chunk.css.map": "/hack6-weather-app/static/css/main.14700a2e.chunk.css.map",
+    "static/js/2.8a8f428b.chunk.js.LICENSE.txt": "/hack6-weather-app/static/js/2.8a8f428b.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/hack6-weather-app/static/media/sky.52135992.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5e7e0e0a.js",
-    "static/js/2.6e543f71.chunk.js",
-    "static/css/main.27f22c32.chunk.css",
-    "static/js/main.eed3cb56.chunk.js"
+    "static/js/runtime-main.1a27dfa1.js",
+    "static/js/2.8a8f428b.chunk.js",
+    "static/css/main.14700a2e.chunk.css",
+    "static/js/main.7d4c233c.chunk.js"
   ]
 }
