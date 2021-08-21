@@ -152,7 +152,6 @@ export default class App extends React.Component {
     for (let i = 0; i < 3; i++) {
       summaries.push(
         {
-          clouds: 0,
           feels_like_high: -1000,
           feels_like_low: 1000,
           humidity: -1000,
@@ -167,7 +166,7 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 9; i += 4) {
       for (let j = 0; j < 4; j++) {
-        summaries[i / 4].clouds = Math.max(hourlyWeather[i + j].clouds, summaries[i / 4].clouds);
+
         summaries[i / 4].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_high);
         summaries[i / 4].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_low);
         summaries[i / 4].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i / 4].humidity);
