@@ -1,6 +1,6 @@
-import axios from "axios"
-import React from 'react';
-import { Row, Col, Card, ListGroup } from 'react-bootstrap';
+import axios from "axios";
+import React from "react";
+import { Row, Col, Card, ListGroup } from "react-bootstrap";
 
 const tips = {
     "feels_like_high": {
@@ -230,7 +230,6 @@ export default class WeatherTips extends React.Component {
                 {this.generateWeatherTips()}
                 <br></br>
             </div>
-
         );
-    }
+  }
 }

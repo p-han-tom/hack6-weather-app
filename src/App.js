@@ -13,7 +13,6 @@ const BG = {
   "Snow": "linear-gradient(rgb(147, 221, 255), rgb(134, 209, 253))"
 }
 
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +56,6 @@ export default class App extends React.Component {
     }).catch(function (error) {
       console.error(error);
     });
-
   }
 
   parseTime = (unixTime) => {
@@ -110,7 +108,7 @@ export default class App extends React.Component {
     for (let i = 0; i < 12; i++) {
       reports.push(
         <OverlayTrigger
-          trigger="hover"
+          trigger="click"
           placement="right"
           overlay={
             <Popover>
@@ -133,7 +131,6 @@ export default class App extends React.Component {
             </ListGroup>
           </Card>
         </OverlayTrigger>
-
       );
     }
     return reports;
@@ -159,15 +156,16 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 9; i += 4) {
       for (let j = 0; j < 4; j++) {
-        summaries[i/4].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i/4].feels_like_high);
-        summaries[i/4].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i/4].feels_like_low);
-        summaries[i/4].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i/4].humidity);
-        summaries[i/4].pop = Math.max(hourlyWeather[i + j].pop, summaries[i/4].pop);
-        summaries[i/4].uvi = Math.max(hourlyWeather[i + j].uvi, summaries[i/4].uvi);
-        summaries[i/4].visibility = Math.max(hourlyWeather[i + j].visibility, summaries[i/4].visibility);
-        summaries[i/4].wind_speed = Math.max(hourlyWeather[i + j].wind_speed, summaries[i/4].wind_speed);
+
+        summaries[i / 4].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_high);
+        summaries[i / 4].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i / 4].feels_like_low);
+        summaries[i / 4].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i / 4].humidity);
+        summaries[i / 4].pop = Math.max(hourlyWeather[i + j].pop, summaries[i / 4].pop);
+        summaries[i / 4].uvi = Math.max(hourlyWeather[i + j].uvi, summaries[i / 4].uvi);
+        summaries[i / 4].visibility = Math.max(hourlyWeather[i + j].visibility, summaries[i / 4].visibility);
+        summaries[i / 4].wind_speed = Math.max(hourlyWeather[i + j].wind_speed, summaries[i / 4].wind_speed);
       }
-      tips.push(<WeatherTips summary = {summaries[i/4]}/>)
+      tips.push(<WeatherTips summary={summaries[i / 4]} />)
     }
 
     return tips;
