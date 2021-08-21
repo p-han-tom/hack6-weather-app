@@ -1,10 +1,10 @@
 import axios from "axios";
 import React from "react";
-import { Row, Col, Card, ListGroup } from "react-bootstrap";
+import { Row, Col, Accordion, ListGroup } from "react-bootstrap";
 
 const tips = {
     "feels_like_high": {
-        compare: function(data) {
+        compare: function (data) {
             if (data >= this.low && data <= this.mid) {
                 return 0;
             } else if (data >= this.mid && data <= this.hi) {
@@ -35,7 +35,7 @@ const tips = {
                 - Pack a water bottle to stay hydrated.`
     },
     "feels_like_low": {
-        compare: function(data) {
+        compare: function (data) {
             if (data <= this.low && data >= this.mid) {
                 return 0;
             } else if (data <= this.mid && data >= this.hi) {
@@ -68,7 +68,7 @@ const tips = {
                 - Try to avoid spending too long outside, pack water to stay hydrated.`
     },
     "humidity": {
-        compare: function(data) {
+        compare: function (data) {
             if (data >= this.low && data <= this.mid) {
                 return 0;
             } else if (data >= this.hi) {
@@ -92,7 +92,7 @@ const tips = {
         hiMsg: `High humidity prevents sweat from evaporating easily, wear loose-fitting clothes for better air circulation.`
     },
     "pop": {
-        compare: function(data) {
+        compare: function (data) {
             if (data >= this.low && data <= this.mid) {
                 return 0;
             } else if (data >= this.mid && data <= this.hi) {
@@ -120,7 +120,7 @@ const tips = {
         hiMsg: `gonna rain`
     },
     "uvi": {
-        compare: function(data) {
+        compare: function (data) {
             if (data >= this.mid && data <= this.hi) {
                 return 1;
             } else if (data >= this.hi) {
@@ -142,7 +142,7 @@ const tips = {
         hiMsg: `high uvi`
     },
     "visibility": {
-        compare: function(data) {
+        compare: function (data) {
             if (data <= this.low) {
                 return 1;
             } else if (data >= this.low && data <= this.mid) {
@@ -165,8 +165,8 @@ const tips = {
 
     },
     "wind_speed": {
-        compare: function(data) {
-             if (data >= this.mid && data <= this.hi) {
+        compare: function (data) {
+            if (data >= this.mid && data <= this.hi) {
                 return 1;
             } else if (data >= this.hi) {
                 return 2;
@@ -196,6 +196,7 @@ export default class WeatherTips extends React.Component {
     }
 
     generateWeatherTips = () => {
+
         let weatherTips = [];
         let title, msg, color;
         const data = this.props.summary;
@@ -217,10 +218,14 @@ export default class WeatherTips extends React.Component {
 
             if (title !== "" && dataType !== -1) {
                 weatherTips.push(
-                    <Card id = "tipWrapper">
-                        <Card.Header style = {{backgroundColor: color}} id = "tipHeader">{title}</Card.Header>
-                        <Card.Body id = "tipBody">{msg}</Card.Body>
-                    </Card>
+                    <Accordion defaultActiveKey='0' id="tipWrapper">
+                        <Accordion.Item style = {{backgroundColor: color}} id="tipHeader">
+                            <Accordion.Header>{title}</Accordion.Header>
+                            <Accordion.Body style = {{backgroundColor: "white"}}>
+                                {msg}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
 
                 )
             }
@@ -232,9 +237,9 @@ export default class WeatherTips extends React.Component {
     render() {
         return (
             <div id="tipCollection">
-                <div id = "timeHeader">{this.props.startTime} to {this.props.endTime}</div>
+                <div id="timeHeader">{this.props.startTime} to {this.props.endTime}</div>
                 {this.generateWeatherTips()}
             </div>
         );
-  }
+    }
 }

@@ -82,16 +82,24 @@ dark: #8aacc8
 }
 
 #tipWrapper {
+    white-space: pre-line;
+
     margin-bottom: 0.5em;
     border-color: #8aacc8;
 }
 
-#tipHeader, #timeHeader {
+#timeHeader, #tipHeader .accordion-button {
     font-size: 2em;
     color: white;
     font-weight: 500;
     text-shadow: 0 0 5px black;
 }
+
+#tipHeader .accordion-button {
+    font-size: 0.75em;
+    background-color: inherit;
+}
+
 
 #tipHeader {
     padding: 0.5em
