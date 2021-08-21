@@ -1,8 +1,18 @@
 import './App.css';
 import axios from "axios"
 import React from 'react';
-import { Row, Col, Card, ListGroup } from 'react-bootstrap';
+
 import WeatherTips from './WeatherTips';
+
+import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover } from 'react-bootstrap';
+
+const BG = {
+  "Rain": "linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))",
+  "Clear": "linear-gradient(rgb(250, 217, 0),  rgb(255, 255, 255))",
+  "Clouds": "linear-gradient(rgb(223, 223, 223), rgb(235, 235, 235))",
+  "Snow": "linear-gradient(rgb(147, 221, 255), rgb(134, 209, 253))"
+}
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +35,6 @@ export default class App extends React.Component {
       this.getWeather();
     }
   }
-
 
   // BACKEND DO NOT TOUCH
   getWeather = () => {
@@ -55,6 +64,7 @@ export default class App extends React.Component {
     let hours = new Date(unixTime * 1000).getHours();
     let ampm = hours > 11 ? "PM" : "AM";
     hours = hours < 10 ? "0" + hours : hours;
+
     return hours + ":00 " + ampm;
   }
 
@@ -99,20 +109,30 @@ export default class App extends React.Component {
     let hourlyWeather = this.state.weather.hourly;
     for (let i = 0; i < 12; i++) {
       reports.push(
-        <Card className="hour-cards">
-          <Card.Header>
-            <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
-            <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
-            {Math.round(hourlyWeather[i].temp)}°C
-          </Card.Header>
-          <ListGroup>
-            <ListGroup.Item>
-              P.O.P: {hourlyWeather[i].pop * 100}%
-            </ListGroup.Item>
-            {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
-            {/* Expand to show more if things get to cluttered? */}
-          </ListGroup>
-        </Card>
+        <OverlayTrigger
+          trigger="hover"
+          placement="right"
+          overlay={
+            <Popover>
+              <Popover.Body>Addition Info goes here :)</Popover.Body>
+            </Popover>
+          }>
+          <Card className="hour-cards">
+            {/* Ternary to automatically adjust any Atmosphere conditions to a cloudy background */}
+            <Card.Header style={{ background: hourlyWeather[i].weather[0].main >= 700 && hourlyWeather[i].weather[0].main < 800 ? BG[hourlyWeather[i].weather[0].main] : BG["Clouds"] }}>
+              <div id="hour-header">{this.parseTime(hourlyWeather[i].dt)}</div>
+              <img id="weather-icons" src={"http://openweathermap.org/img/wn/" + hourlyWeather[i].weather[0].icon + "@2x.png"} alt="" />
+              <p style={{ fontSize: "0.75em" }}>{Math.round(hourlyWeather[i].temp)}°C</p>
+            </Card.Header>
+            <ListGroup>
+              <ListGroup.Item>
+                P.O.P: {hourlyWeather[i].pop * 100}%
+              </ListGroup.Item>
+              {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
+              {/* Expand to show more if things get to cluttered? */}
+            </ListGroup>
+          </Card>
+        </OverlayTrigger>
 
       );
     }
@@ -156,7 +176,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
     if (Object.keys(this.state.weather).length > 0) {
       return (
         <div>
@@ -187,8 +206,8 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        //Handle loading screen
-        <div>loading</div>
+        // Handle loading screen
+        <div id="loadingPrompt"><Spinner animation="border" /><span style={{ fontSize: "3em" }}> Loading</span></div>
       )
     }
 
