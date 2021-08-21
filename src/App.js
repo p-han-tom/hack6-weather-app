@@ -108,7 +108,7 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 12; i++) {
       reports.push(
-        <div style={{ width: "50%", marginBottom: "2em" }}>
+        <div id = "weather-cards">
           <OverlayTrigger
             placement="right"
             overlay={
@@ -138,8 +138,6 @@ export default class App extends React.Component {
                 <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
               </Accordion.Body>
             </Accordion.Item>
-            {/* Fill with more group items, e.g. cloudiness, windiness, humidity, etc */}
-            {/* Expand to show more if things get to cluttered? */}
           </Accordion>
         </div>
       );
@@ -176,7 +174,12 @@ export default class App extends React.Component {
         summaries[i / 4].visibility = Math.max(hourlyWeather[i + j].visibility, summaries[i / 4].visibility);
         summaries[i / 4].wind_speed = Math.max(hourlyWeather[i + j].wind_speed, summaries[i / 4].wind_speed);
       }
-      tips.push(<WeatherTips summary={summaries[i / 4]} />)
+      tips.push(
+        <WeatherTips
+          summary={summaries[i / 4]}
+          startTime={this.parseTime(hourlyWeather[i].dt)}
+          endTime={this.parseTime(hourlyWeather[i].dt + 60 * 60 * 3)} />
+      )
     }
 
     return tips;

@@ -4,6 +4,8 @@ light: #eeffff
 dark: #8aacc8
  */
 
+/* ANCHOR: App.js */
+
 html, body {
     padding: 2em;
     background-color: #eeffff;  
@@ -19,6 +21,12 @@ html, body {
 #greeting, #approx-location { 
     font-size: 2em;
     font-weight: 500;
+}
+
+#weather-cards {
+    width: 45%;
+    display: inline-block;
+    margin-right: 5%;
 }
 
 .hour-cards {
@@ -46,3 +54,35 @@ html, body {
     float: left;
 }
 
+/* ANCHOR: WeatherTips.jsx */
+
+#tipCollection {
+    vertical-align: top;
+    width: 45%;
+    margin-right: 5%;
+    margin-bottom: 3em;
+    border: solid 1px #8aacc8;
+    background-color: #bbdefb;
+    border-radius: 1em;
+    padding: 1em;
+    display: inline-block;
+}
+
+#tipWrapper {
+    margin-bottom: 0.5em;
+    border-color: #8aacc8;
+}
+
+#tipHeader {
+    font-size: 2em;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 0 5px black;
+    padding: 0.5em
+}
+
+#timeHeader {
+    font-weight: 500;
+    font-size: 2em;
+    text-align: center;
+}

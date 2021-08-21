@@ -19,6 +19,10 @@ const tips = {
         mid: 25,
         hi: 30,
 
+        lowColor: "#bff542",
+        midColor: "#ff9b3d",
+        hiColor: "#ff4238",
+
         lowTitle: "Warm weather",
         midTitle: "Hot weather",
         hiTitle: "Very hot weather",
@@ -47,6 +51,10 @@ const tips = {
         mid: -5,
         hi: -15,
 
+        lowColor: "#35fcc1",
+        midColor: "#35cefc",
+        hiColor: "#3699f5",
+
         lowTitle: "Cool weather",
         midTitle: "Cold weather",
         hiTitle: "Very cold weather",
@@ -68,6 +76,10 @@ const tips = {
         low: 0,
         mid: 0.25,
         hi: 0.50,
+
+        lowColor: "#bdffc4",
+        midColor: "#9fd6a4",
+        hiColor: "#79a37d",
 
         lowTitle: "Dry conditions",
         hiTitle: "Wet conditions",
@@ -91,6 +103,10 @@ const tips = {
         mid: 0.5,
         hi: 0.7,
 
+        lowColor: "#cfcfcf",
+        midColor: "#a8a8a8",
+        hiColor: "#949494",
+
         lowTitle: "Slight risk of rain",
         midTitle: "Medium risk of rain",
         hiTitle: "High risk of rain",
@@ -112,6 +128,9 @@ const tips = {
         mid: 4,
         hi: 7,
 
+        midColor: "#fbff7a",
+        hiColor: "#b854ff",
+
         midTitle: "mid uvi",
         hiTitle: "high uvi",
 
@@ -130,6 +149,9 @@ const tips = {
         },
         low: 2500,
         mid: 5000,
+
+        lowColor: "#9c9c9c",
+        midColor: "#c4c4c4",
 
         lowTitle: "Very low visibility",
         midTitle: "Low visibility",
@@ -151,6 +173,9 @@ const tips = {
         mid: 18,
         hi: 35,
 
+        midColor: "#85ff33",
+        hiColor: "#ffc533",
+
         midTitle: "Moderately windy",
         hiTitle: "High winds",
 
@@ -168,27 +193,29 @@ export default class WeatherTips extends React.Component {
 
     generateWeatherTips = () => {
         let weatherTips = [];
-        let title, msg;
-        let key = "feels_like_high";
+        let title, msg, color;
         const data = this.props.summary;
         for (let key of Object.keys(this.props.summary)) {
             let dataType = tips[key].compare(data[key]);
             if (dataType === 0) {
                 title = tips[key].lowTitle;
                 msg = tips[key].lowMsg;
+                color = tips[key].lowColor;
             } else if (dataType === 1) {
                 title = tips[key].midTitle;
                 msg = tips[key].midMsg;
+                color = tips[key].midColor;
             } else if (dataType === 2) {
                 title = tips[key].hiTitle;
                 msg = tips[key].hiMsg;
+                color = tips[key].hiColor;
             }
 
             if (title !== "" && dataType !== -1) {
                 weatherTips.push(
-                    <Card>
-                        <Card.Header>{title}</Card.Header>
-                        <Card.Body>{msg}</Card.Body>
+                    <Card id = "tipWrapper">
+                        <Card.Header style = {{backgroundColor: color}} id = "tipHeader">{title}</Card.Header>
+                        <Card.Body id = "tipBody">{msg}</Card.Body>
                     </Card>
 
                 )
@@ -200,9 +227,9 @@ export default class WeatherTips extends React.Component {
 
     render() {
         return (
-            <div id="tipsWrapper">
+            <div id="tipCollection">
+                <div id = "timeHeader">{this.props.startTime} to {this.props.endTime}</div>
                 {this.generateWeatherTips()}
-                <br></br>
             </div>
         );
   }
