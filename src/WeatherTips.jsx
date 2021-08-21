@@ -89,7 +89,7 @@ const tips = {
         hiTitle: "Wet conditions",
 
         lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, coughing.`,
-        hiMsg: `High humidity prevents sweat from evaporating easily, wear loose-fitting clothes for better air circulation.`
+        hiMsg: `High humidity prevents sweat from evaporating easily. Wear loose-fitting clothes for better air circulation.`
     },
     "pop": {
         compare: function(data) {
@@ -115,9 +115,9 @@ const tips = {
         midTitle: "Medium risk of rain",
         hiTitle: "High risk of rain",
 
-        lowMsg: `proly won't rain`,
-        midMsg: `might rain`,
-        hiMsg: `gonna rain`
+        lowMsg: `The chance for precipitation is low, no need to worry about heavy rain. Might want to bring an umbrella just in case.`,
+        midMsg: `There is a decent chance it will rain. If you're going outside, consider bringing rain gear and an umbrella.`,
+        hiMsg: `With such a high chance for precipitation, you should definitely prepare for rain. Rain gear and an umbrella are recommended if you plan to go outside.`
     },
     "uvi": {
         compare: function(data) {
@@ -135,11 +135,11 @@ const tips = {
         midColor: "#fbff7a",
         hiColor: "#b854ff",
 
-        midTitle: "mid uvi",
-        hiTitle: "high uvi",
+        midTitle: "Moderate UV",
+        hiTitle: "High UV",
 
-        midMsg: `mid uvi`,
-        hiMsg: `high uvi`
+        midMsg: `There is a moderate risk of skin damage from unprotected exposure. Dress in light clothes that cover as much skin as possible (long sleeves and pants), and wear head protection. Sunscreen with an SPF of 30 is recommended.`,
+        hiMsg: `There is a high risk of skin damage from unprotected exposure. Wear long sleeved clothing, and a wide-brimmed hat to protect your face, neck, and ears. Sunglasses should be worn, and sunscreen with 30 SPF is heavily recommended.`
     },
     "visibility": {
         compare: function(data) {
@@ -160,8 +160,8 @@ const tips = {
         lowTitle: "Very low visibility",
         midTitle: "Low visibility",
 
-        lowMsg: `fog or mist be careful`,
-        midMsg: `humidity hazy kinda low visibility`,
+        lowMsg: `With such low visibility, you should be careful when outside (especially when operating motor vehicles). If you are driving in such conditions, turn on low-beam/fog lights. Drive slowly, and be careful when braking. Be careful of condensation on your windshield.`,
+        midMsg: `Lowered visibility, but unlikely to be foggy. Remain vigilant if you are operating a vehicle.`,
 
     },
     "wind_speed": {
@@ -180,11 +180,11 @@ const tips = {
         midColor: "#85ff33",
         hiColor: "#ffc533",
 
-        midTitle: "Moderately windy",
-        hiTitle: "High winds",
+        midTitle: "Moderate breeze",
+        hiTitle: "Strong breeze",
 
-        midMsg: `windy`,
-        hiMsg: `Very windy, could get dangerous`
+        midMsg: `Windy enough to sway trees. Noticeable impediment when walking against the wind. No danger is posed, but dress accordingly.`,
+        hiMsg: `Very windy, twigs breaking off trees. Walking against the wind is very difficult. Could be dangerous if the winds get any larger. It is recommended to not venture outside.`
     }
 }
 
