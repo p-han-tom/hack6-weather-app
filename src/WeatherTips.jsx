@@ -77,11 +77,11 @@ const tips = {
     },
     "pop": {
         compare: function(data) {
-            if (data <= this.low && data >= this.mid) {
+            if (data >= this.low && data <= this.mid) {
                 return 0;
-            } else if (data <= this.mid && data >= this.hi) {
+            } else if (data >= this.mid && data <= this.hi) {
                 return 1;
-            } else if (data <= this.hi) {
+            } else if (data >= this.hi) {
                 return 2;
             } else {
                 return -1
@@ -101,87 +101,61 @@ const tips = {
     },
     "uvi": {
         compare: function(data) {
-            if (data <= this.low && data >= this.mid) {
-                return 0;
-            } else if (data <= this.mid && data >= this.hi) {
+            if (data >= this.mid && data <= this.hi) {
                 return 1;
-            } else if (data <= this.hi) {
+            } else if (data >= this.hi) {
                 return 2;
             } else {
                 return -1
             }
         },
-        low: 20,
-        mid: 25,
-        hi: 30,
+        mid: 4,
+        hi: 7,
 
-        lowTitle: "Warm weather",
-        midTitle: "Hot weather",
-        hiTitle: "Very hot weather",
+        midTitle: "mid uvi",
+        hiTitle: "high uvi",
 
-        lowMsg: `It's going to be a warm here, so don't dress too warm yourself.`,
-        midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
-        hiMsg: `It's going to be very hot here. Here are some tips:
-        - Wear loose-fitting, short-sleeved clothes for better air circulation 
-        - Wear light-coloured fabrics to reflect sunlight
-        - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
-        - Pack a water bottle to stay hydrated`
+        midMsg: `mid uvi`,
+        hiMsg: `high uvi`
     },
     "visibility": {
         compare: function(data) {
-            if (data <= this.low && data >= this.mid) {
-                return 0;
-            } else if (data <= this.mid && data >= this.hi) {
+            if (data <= this.low) {
                 return 1;
-            } else if (data <= this.hi) {
+            } else if (data >= this.low && data <= this.mid) {
                 return 2;
             } else {
                 return -1
             }
         },
-        low: 20,
-        mid: 25,
-        hi: 30,
+        low: 2500,
+        mid: 5000,
 
-        lowTitle: "Warm weather",
-        midTitle: "Hot weather",
-        hiTitle: "Very hot weather",
+        lowTitle: "Very low visibility",
+        midTitle: "Low visibility",
 
-        lowMsg: `It's going to be a warm here, so don't dress too warm yourself.`,
-        midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
-        hiMsg: `It's going to be very hot here. Here are some tips:
-        - Wear loose-fitting, short-sleeved clothes for better air circulation 
-        - Wear light-coloured fabrics to reflect sunlight
-        - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
-        - Pack a water bottle to stay hydrated`
+        lowMsg: `fog or mist be careful`,
+        midMsg: `humidity hazy kinda low visibility`,
+
     },
     "wind_speed": {
         compare: function(data) {
-            if (data <= this.low && data >= this.mid) {
-                return 0;
-            } else if (data <= this.mid && data >= this.hi) {
+             if (data >= this.mid && data <= this.hi) {
                 return 1;
-            } else if (data <= this.hi) {
+            } else if (data >= this.hi) {
                 return 2;
             } else {
                 return -1
             }
         },
-        low: 20,
-        mid: 25,
-        hi: 30,
+        mid: 18,
+        hi: 35,
 
-        lowTitle: "Warm weather",
-        midTitle: "Hot weather",
-        hiTitle: "Very hot weather",
+        midTitle: "Moderately windy",
+        hiTitle: "High winds",
 
-        lowMsg: `It's going to be a warm here, so don't dress too warm yourself.`,
-        midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
-        hiMsg: `It's going to be very hot here. Here are some tips:
-        - Wear loose-fitting, short-sleeved clothes for better air circulation 
-        - Wear light-coloured fabrics to reflect sunlight
-        - Wear natural fibre fabrics such as linen, silk, or cotton since they absorb sweat better than other materials
-        - Pack a water bottle to stay hydrated`
+        midMsg: `windy`,
+        hiMsg: `Very windy, could get dangerous`
     }
 }
 
