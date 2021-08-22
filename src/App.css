@@ -24,6 +24,11 @@ dark: #8aacc8
     transform: translate(-50%, -50%);
 }
 
+#header {
+    margin-bottom: 1em;
+    align-items: flex-end;
+}
+
 #greeting {
     font-size: 4em;
     font-weight: 500;

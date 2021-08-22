@@ -88,7 +88,7 @@ const tips = {
         lowTitle: "Dry conditions",
         hiTitle: "Wet conditions",
 
-        lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, coughing. Consider utilizing a humidifier if you are indoors.`,
+        lowMsg: `Low humidity (especially if paired with cold weather) can cause congestion, nosebleeds, and coughing. Consider utilizing a humidifier if you are indoors.`,
         hiMsg: `High humidity prevents sweat from evaporating easily. Wear loose-fitting clothes for better air circulation.`
     },
     "pop": {
@@ -111,13 +111,13 @@ const tips = {
         midColor: "#a8a8a8",
         hiColor: "#949494",
 
-        lowTitle: "Slight risk of rain",
-        midTitle: "Medium risk of rain",
-        hiTitle: "High risk of rain",
+        lowTitle: "Slight risk of precipitation",
+        midTitle: "Medium risk of precipitation",
+        hiTitle: "High risk of precipitation",
 
-        lowMsg: `The chance for precipitation is low, so there's no need to worry about heavy rain. You might want to bring an umbrella just in case.`,
-        midMsg: `There is a decent chance it will rain. If you're going outside, consider bringing rain gear and an umbrella.`,
-        hiMsg: `With such a high chance for precipitation, you should definitely prepare for rain. Rain gear and an umbrella are recommended if you plan to go outside.`
+        lowMsg: `The chance for precipitation is low, so there's no need to worry about heavy rain or snow. You might want to bring an umbrella just in case.`,
+        midMsg: `There is a decent chance it will rain or snow. If you're going outside, consider bringing rain gear and an umbrella if applicable.`,
+        hiMsg: `With such a high chance for precipitation, you should definitely prepare for rain or heavy snow. Rain gear and an umbrella are recommended if you plan to go outside. Visibility may be low, so be careful driving and walking.`
     },
     "uvi": {
         compare: function (data) {

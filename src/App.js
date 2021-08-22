@@ -27,12 +27,12 @@ export default class App extends React.Component {
         hourly: [
           {
             "dt": 1629572400,
-            "temp": -8.63,
-            "feels_like": -9.07,
+            "temp": -18.63,
+            "feels_like": -19.07,
             "pressure": 1012,
-            "humidity": 2,
+            "humidity": 0.1,
             "dew_point": 18.71,
-            "uvi": 2.16,
+            "uvi": 4.16,
             "clouds": 64,
             "visibility": 10000,
             "wind_speed": 15.51,
@@ -50,12 +50,12 @@ export default class App extends React.Component {
           },
           {
             "dt": 1629576000,
-            "temp": -8.16,
-            "feels_like": -9.17,
+            "temp": -18.16,
+            "feels_like": -19.17,
             "pressure": 1012,
-            "humidity": 1,
+            "humidity": 0.2,
             "dew_point": 19.39,
-            "uvi": 2.28,
+            "uvi": 5.28,
             "clouds": 75,
             "visibility": 10000,
             "wind_speed": 30.59,
@@ -73,12 +73,12 @@ export default class App extends React.Component {
           },
           {
             "dt": 1629579600,
-            "temp": 28.58,
-            "feels_like": 29.7,
+            "temp": -22,
+            "feels_like": -23,
             "pressure": 1012,
-            "humidity": 55,
+            "humidity": 0.15,
             "dew_point": 18.66,
-            "uvi": 1.34,
+            "uvi": 6.34,
             "clouds": 66,
             "visibility": 10000,
             "wind_speed": 2.96,
@@ -94,6 +94,7 @@ export default class App extends React.Component {
             ],
             "pop": 0
           },
+          /////////////////////////////////////////////
           {
             "dt": 1629583200,
             "temp": 28.48,
@@ -117,7 +118,6 @@ export default class App extends React.Component {
             ],
             "pop": 0
           },
-          /////////////////////////////////////////////////////////
           {
             "dt": 1629586800,
             "temp": 32.4,
@@ -164,10 +164,11 @@ export default class App extends React.Component {
             ],
             "pop": 0.64
           },
+          /////////////////////////////////////////////////////////
           {
             "dt": 1629594000,
-            "temp": 32.13,
-            "feels_like": 33.25,
+            "temp": 12.13,
+            "feels_like": 10.25,
             "pressure": 1012,
             "humidity": 71,
             "dew_point": 16.54,
@@ -189,8 +190,8 @@ export default class App extends React.Component {
           },
           {
             "dt": 1629597600,
-            "temp": 21.12,
-            "feels_like": 21.25,
+            "temp": 11.12,
+            "feels_like": 11.25,
             "pressure": 1012,
             "humidity": 75,
             "dew_point": 16.36,
@@ -210,7 +211,6 @@ export default class App extends React.Component {
             ],
             "pop": 0
           },
-          /////////////////////////////////////////////////////////
           {
             "dt": 1629601200,
             "temp": 6.78,
@@ -234,6 +234,8 @@ export default class App extends React.Component {
             ],
             "pop": 0
           },
+          /////////////////////////////////////////////////////////
+
           {
             "dt": 1629604800,
             "temp": 20.18,
@@ -402,7 +404,7 @@ export default class App extends React.Component {
       lon: undefined,
     };
 
-    navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
+    // navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
   }
 
   setLocation = (position) => {
@@ -570,12 +572,12 @@ export default class App extends React.Component {
       return (
         <div id="parallax">
           {/* HEADER */}
-          <Row>
+          <Row id="header">
             <Col>
-              <div id = "greeting">Smart Day</div>
-              <div id = "last-update">Last updated: {this.getLastUpdate()}</div>
+              <div id="greeting">Smart Day</div>
+              <div id="last-update">Last updated: {this.getLastUpdate()}</div>
             </Col>
-            <Col id = "greeting" style = {{textAlign: "right"}}>
+            <Col id="greeting" style={{ textAlign: "right", fontSize: "2em" }}>
               Your local weather update!
             </Col>
           </Row>
@@ -589,7 +591,7 @@ export default class App extends React.Component {
 
             {/* Weather tips in four hour intervals */}
             <Col>
-            
+
               {this.generateWeatherTips()}
             </Col>
 
