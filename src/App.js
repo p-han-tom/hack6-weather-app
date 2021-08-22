@@ -408,6 +408,7 @@ export default class App extends React.Component {
       //     },
       //   ]
       // },
+      
       lat: undefined,
       lon: undefined,
 
@@ -415,7 +416,7 @@ export default class App extends React.Component {
 
     };
 
-    navigator.geolocation.getCurrentPosition(this.setLocation, () => { $(".warning").css("display", "block") });
+    if (!this.state.testing) navigator.geolocation.getCurrentPosition(this.setLocation, () => { $(".warning").css("display", "block") });
   }
 
   componentDidMount = () => {
@@ -584,7 +585,6 @@ export default class App extends React.Component {
 
     for (let i = 0; i < 10; i += 3) {
       for (let j = 0; j < 3; j++) {
-
         summaries[i / 3].feels_like_high = Math.max(hourlyWeather[i + j].feels_like, summaries[i / 3].feels_like_high);
         summaries[i / 3].feels_like_low = Math.min(hourlyWeather[i + j].feels_like, summaries[i / 3].feels_like_low);
         summaries[i / 3].humidity = Math.max(hourlyWeather[i + j].humidity, summaries[i / 3].humidity);
@@ -597,7 +597,7 @@ export default class App extends React.Component {
         <WeatherTips
           summary={summaries[i / 3]}
           startTime={this.parseTime(hourlyWeather[i].dt)}
-          endTime={this.parseTime(hourlyWeather[i].dt + 60 * 60 * 3)} />
+          endTime={this.parseTime(hourlyWeather[i].dt + 60 * 60 * 2)} />
       )
     }
 

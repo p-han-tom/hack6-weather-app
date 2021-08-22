@@ -27,7 +27,7 @@ const tips = {
         midTitle: "Hot weather",
         hiTitle: "Very hot weather",
 
-        lowMsg: `It's going to be a warm here, dress lightly and stay conscious of the heat.`,
+        lowMsg: `It's going to be a warm here, so dress lightly and stay conscious of the heat.`,
         midMsg: `It's going to get hot here. Consider wearing short-sleeved, light-weight attire to stay cool. Also, remember to stay hydrated.`,
         hiMsg: `It's going to be very hot here. Here are some tips:
                 - Wear light-coloured fabrics to reflect sunlight.
