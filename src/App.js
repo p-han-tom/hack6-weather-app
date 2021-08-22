@@ -409,11 +409,11 @@ export default class App extends React.Component {
       lon: undefined,
     };
 
-    // navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
+    navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
   }
 
   componentDidMount = () => {
-    const hour = new Date().getHours();
+    const hour = new Date(this.state.weather.hourly[0].dt*1000).getHours();
     if (hour < 6 || hour > 20) {
       this.setState({ background: night })
     } else if ((hour >= 6 && hour < 9) || (hour >= 18 && hour < 20)) {
@@ -448,7 +448,14 @@ export default class App extends React.Component {
     const self = this;
     axios.request(options).then(function (response) {
       self.setState({ weather: response.data });
-
+      const hour = new Date(response.data.hourly[0].dt*1000).getHours();
+      if (hour < 6 || hour > 20) {
+        self.setState({ background: night })
+      } else if ((hour >= 6 && hour < 9) || (hour >= 18 && hour < 20)) {
+        self.setState({ background: sunrise })
+      } else {
+        self.setState({ background: day })
+      }
       console.dir(response.data, { depth: null });
     }).catch(function (error) {
       console.error(error);
@@ -504,7 +511,8 @@ export default class App extends React.Component {
     let hourlyWeather = this.state.weather.hourly;
 
     for (let i = 0; i < 12; i++) {
-      let currHour = (new Date().getHours() + i > 24 ? new Date().getHours() + i - 24 : new Date().getHours() + i > 24);
+      let temp_currHour = new Date(hourlyWeather[0].dt*1000).getHours();
+      let currHour = (temp_currHour + i >= 24 ? temp_currHour+ i - 24 : temp_currHour + i);
       reports.push(
         <div id="weather-cards">
           <OverlayTrigger
@@ -588,6 +596,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    
     if (Object.keys(this.state.weather).length > 0) {
 
       return (
