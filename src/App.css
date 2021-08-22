@@ -16,7 +16,7 @@ button:focus {
     background-attachment: fixed !important;
 }
 
-#loadingPrompt {
+#loading-content {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -122,18 +122,19 @@ button:focus {
 /* Warning popup */
 
 .warning {
-    position: absolute;
+    display: none;
+    position: fixed;
+    text-align: center;
     top: 0;
     left: 0;
     z-index: 1;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .warning-body {
     position: absolute;
-    text-align: center;
     padding: 2em;
     background-color: #fff;
     border-radius: 0.5em;
