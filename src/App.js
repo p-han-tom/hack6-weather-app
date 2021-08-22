@@ -8,7 +8,7 @@ import day from "./images/day_sky.jpg"
 import night from "./images/night_sky.jpg"
 import sunrise from "./images/sunrise.jpg"
 
-import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover, Accordion } from 'react-bootstrap';
+import { Row, Col, Card, ListGroup, Spinner, OverlayTrigger, Popover, Accordion, Button } from 'react-bootstrap';
 
 const BG = {
   "Rain": ["linear-gradient(rgb(230, 230, 230), rgb(158, 224, 255))", "linear-gradient(rgb(132, 185, 255), rgb(16, 86, 101))"],
@@ -409,7 +409,7 @@ export default class App extends React.Component {
       lon: undefined,
     };
 
-    // navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
+    navigator.geolocation.getCurrentPosition(this.setLocation, () => {/* handle permission denied here */ });
   }
 
   componentDidMount = () => {
@@ -589,7 +589,6 @@ export default class App extends React.Component {
 
   render() {
     if (Object.keys(this.state.weather).length > 0) {
-
       return (
         <div id="parallax" style={{
           background: `url(${this.state.background})`,
@@ -620,13 +619,28 @@ export default class App extends React.Component {
             </Col>
 
           </Row>
+          <Warning />
         </div>
       );
     } else {
       return (
         // Handle loading screen
-        <div id="loadingPrompt"><Spinner animation="border" /><span style={{ fontSize: "3em" }}> Loading</span></div>
+        <div id="loadingPrompt"><Spinner animation="border" />
+          <span style={{ fontSize: "3em" }}>Loading</span>
+          <Warning />
+        </div>
       )
     }
   }
+}
+
+const Warning = () => {
+  return <div className="warning">
+    <div className="warning-body">
+      <div>
+        You dymb bitch
+      </div>
+      <Button variant="outline-success">LOL</Button>
+    </div>
+  </div>
 }
