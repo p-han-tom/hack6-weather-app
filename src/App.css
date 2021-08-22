@@ -13,13 +13,7 @@ button:focus {
 
 #parallax {
     padding: 3em;
-    background-image: url('./images/sky.jpg');
-    /* background: linear-gradient(rgb(141, 141, 141), rgb(0, 43, 136)); */
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-attachment: fixed !important;
 }
 
 #loadingPrompt {
@@ -101,7 +95,6 @@ button:focus {
 
 #tipWrapper {
     white-space: pre-line;
-
     margin-bottom: 0.5em;
     border-color: #8aacc8;
 }
@@ -117,7 +110,6 @@ button:focus {
     font-size: 0.75em;
     background-color: inherit;
 }
-
 
 #tipHeader {
     padding: 0.5em
