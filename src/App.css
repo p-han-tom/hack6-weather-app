@@ -6,10 +6,15 @@ dark: #8aacc8
 
 /* ANCHOR: App.js */
 
+button:focus {
+    /* outline: none; */
+    box-shadow: 0 0 0 !important;
+}
 
 #parallax {
     padding: 3em;
     background-image: url('./images/sky.jpg');
+    /* background: linear-gradient(rgb(141, 141, 141), rgb(0, 43, 136)); */
     height: 100%;
     background-attachment: fixed;
     background-position: center;
