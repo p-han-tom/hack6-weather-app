@@ -553,8 +553,8 @@ export default class App extends React.Component {
               <Accordion.Body>
                 <div>Humidity: {hourlyWeather[i].humidity}%</div>
                 <div>UV Index: {hourlyWeather[i].uvi}</div>
-                <div>Visibility: {hourlyWeather[i].visibility / 1000}km</div>
-                <div>Wind: {hourlyWeather[i].wind_speed}km/h</div>
+                <div>Visibility: {hourlyWeather[i].visibility / 1000} km</div>
+                <div>Wind: {hourlyWeather[i].wind_speed} km/h</div>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
