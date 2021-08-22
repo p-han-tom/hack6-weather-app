@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/hack6-weather-app/static/css/main.748a1503.chunk.css",
-    "main.js": "/hack6-weather-app/static/js/main.5baf8b7d.chunk.js",
-    "main.js.map": "/hack6-weather-app/static/js/main.5baf8b7d.chunk.js.map",
+    "main.css": "/hack6-weather-app/static/css/main.823cdd73.chunk.css",
+    "main.js": "/hack6-weather-app/static/js/main.46160143.chunk.js",
+    "main.js.map": "/hack6-weather-app/static/js/main.46160143.chunk.js.map",
     "runtime-main.js": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js",
     "runtime-main.js.map": "/hack6-weather-app/static/js/runtime-main.1a27dfa1.js.map",
     "static/js/2.fec0bc65.chunk.js": "/hack6-weather-app/static/js/2.fec0bc65.chunk.js",
@@ -10,14 +10,16 @@
     "static/js/3.6c8df376.chunk.js": "/hack6-weather-app/static/js/3.6c8df376.chunk.js",
     "static/js/3.6c8df376.chunk.js.map": "/hack6-weather-app/static/js/3.6c8df376.chunk.js.map",
     "index.html": "/hack6-weather-app/index.html",
-    "static/css/main.748a1503.chunk.css.map": "/hack6-weather-app/static/css/main.748a1503.chunk.css.map",
+    "static/css/main.823cdd73.chunk.css.map": "/hack6-weather-app/static/css/main.823cdd73.chunk.css.map",
     "static/js/2.fec0bc65.chunk.js.LICENSE.txt": "/hack6-weather-app/static/js/2.fec0bc65.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/hack6-weather-app/static/media/sky.52135992.jpg"
+    "static/media/day_sky.52135992.jpg": "/hack6-weather-app/static/media/day_sky.52135992.jpg",
+    "static/media/night_sky.d99bb1d7.jpg": "/hack6-weather-app/static/media/night_sky.d99bb1d7.jpg",
+    "static/media/sunrise.8edf3053.jpg": "/hack6-weather-app/static/media/sunrise.8edf3053.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.1a27dfa1.js",
     "static/js/2.fec0bc65.chunk.js",
-    "static/css/main.748a1503.chunk.css",
-    "static/js/main.5baf8b7d.chunk.js"
+    "static/css/main.823cdd73.chunk.css",
+    "static/js/main.46160143.chunk.js"
   ]
 }
